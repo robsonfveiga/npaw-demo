@@ -12,10 +12,13 @@
     "docs": "typedoc"
   },
   "dependencies": {
+    "@rollup/plugin-image": "^3.0.3",
+    "@vercel/analytics": "^1.5.0",
     "@videojs/http-streaming": "^3.17.0",
     "crypto-js": "^4.2.0",
     "dotenv": "^16.4.7",
     "install": "^0.13.0",
+    "module-alias": "^2.2.3",
     "npaw-plugin": "^7.3.4",
     "npaw-plugin-adapters": "^7.3.4",
     "npaw-plugin-nwf": "^7.3.4",
@@ -38,11 +41,13 @@
     "eslint-plugin-react-hooks": "^5.0.0",
     "eslint-plugin-react-refresh": "^0.4.19",
     "globals": "^15.15.0",
+    "path": "^0.12.7",
     "typedoc": "^0.27.9",
     "typedoc-material-theme": "^1.3.0",
     "typedoc-plugin-merge-modules": "^6.1.0",
     "typescript": "~5.7.2",
     "typescript-eslint": "^8.24.1",
-    "vite": "^6.2.0"
+    "vite": "^6.2.0",
+    "vite-tsconfig-paths": "^5.1.4"
   }
 }

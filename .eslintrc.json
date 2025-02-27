@@ -1,0 +1,14 @@
+{
+  "settings": {
+    "import/resolver": {
+      "alias": {
+        "map": [
+          ["@", "./src"],
+          ["@services", "./src/services"],
+          ["@models", "./src/models"]
+        ],
+        "extensions": [".ts", ".tsx", ".js", ".jsx"]
+      }
+    }
+  }
+} 

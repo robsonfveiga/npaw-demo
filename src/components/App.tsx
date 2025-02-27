@@ -5,6 +5,7 @@ import { MetricsControl } from './Metrics/MetricsControl';
 import { PanelBar } from './PanelBar/PanelBar';
 import { TokenGenerator } from './TokenGenerator/TokenGenerator';
 import { Video } from './Video/Video'
+import background from '@assets/background.jpg';
 
 /**
  * Main application component that serves as the root of the component tree.
@@ -17,7 +18,7 @@ function App() {
    * Configuration options for the VideoJS player
    */
   const videoJsOptions = {
-    autoplay: false,
+    autoplay: true,
     controls: true,
     responsive: true,
     fluid: true,
@@ -37,7 +38,7 @@ function App() {
 
 
   return (
-    <div className="app-container">
+    <div className="app-container" style={{ backgroundImage: `url(${background})` }}>
       <div className="black-box"></div>
       <div className="main-content">
         <h1>Nice People at Work Demo</h1>

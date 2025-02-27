@@ -40,4 +40,8 @@ export class NpawConfig {
     NpawConfig._apiKey = API_KEY;
     NpawConfig._videoSrc = VIDEO_SRC;
   }
-} 
+}
+
+export const ACCOUNT_CODE = import.meta.env.VITE_NPAW_ACCOUNT_CODE;
+export const API_KEY = import.meta.env.VITE_NPAW_API_KEY;
+export const VIDEO_SRC = import.meta.env.VITE_VIDEO_SRC;
