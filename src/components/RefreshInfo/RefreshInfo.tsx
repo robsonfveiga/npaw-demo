@@ -1,0 +1,1 @@
+private timeout: number | null = null; 

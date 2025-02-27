@@ -34,7 +34,7 @@ const BitRateSelector: React.FC = () => {
     /** Whether the bitrate value is being updated */
     const [isUpdating, setIsUpdating] = useState<boolean>(false);
     /** Reference to the timeout used for animations */
-    const timeoutRef = useRef<NodeJS.Timeout | null>(null);
+    const timeoutRef = useRef<number | null>(null);
 
     /** Instance of the NPAW plugin service */
     const npawService = NpawPluginService.getInstance();
@@ -88,7 +88,7 @@ const BitRateSelector: React.FC = () => {
             timeoutRef.current = setTimeout(() => {
                 setShowHistory(false);
                 setIsClosing(false);
-            }, 400); // Match the CSS transition duration
+            }, 400) as unknown as number;
         } else {
             setShowHistory(true);
         }

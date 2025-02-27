@@ -48,13 +48,18 @@ const categories = [
 
 const npawService = new NpawApiService(ApiEndpoints.Metrics);
 
+interface Props {
+  config: object;
+  payload: MetricsResponse;
+}
+
 /**
  * Component that provides controls for selecting and displaying different categories of metrics.
  * Manages the loading and display of metric data from the NPAW API.
  * 
  * @returns A component with category selection, refresh controls, and metric display
  */
-export const MetricsControl = () => {
+export const MetricsControl = ({ config, payload }: Props) => {
   const [selectedCategory, setSelectedCategory] = useState(categories[0].name);
   const [loadedCaterory, setLoadedCategory] = useState<{ category: string; metrics: MetricsResponse, config: object } | undefined>(undefined);
   const [metadata, setMetadata] = useState<Metadata | undefined>(undefined);
