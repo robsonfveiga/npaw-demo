@@ -1,0 +1,140 @@
+.side-panel {
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: 100vh;
+  background: rgba(191, 225, 255, 0.15); /* crystal-blue with transparency */
+  backdrop-filter: blur(15px);
+  box-shadow: -8px 0 32px rgba(137, 180, 229, 0.3); /* soft-shadow-blue */
+  border-left: 1px solid rgba(255, 255, 255, 0.2); /* glowing-white with transparency */
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  width: 400px;
+  z-index: 1000;
+  overflow: hidden;
+  transform: translateZ(0);
+  display: flex;
+  flex-direction: column;
+}
+
+.side-panel.collapsed {
+  width: 50px;
+}
+
+.panel-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(46, 78, 120, 0.3); /* midnight-blue with transparency */
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  min-height: 30px;
+}
+
+.panel-header:hover {
+  background: rgba(46, 78, 120, 0.5); /* darker on hover */
+}
+
+.side-panel.collapsed .panel-header {
+  padding: 0;
+  justify-content: center;
+  height: 100%;
+  min-height: 100vh;
+  border-bottom: none;
+}
+
+.panel-title {
+  margin: 0;
+  font-size: 0.9rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: rgba(255, 255, 255, 0.9); /* near white for better contrast */
+}
+
+.vertical-title {
+  display: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(-90deg);
+  white-space: nowrap;
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  text-transform: uppercase;
+  width: 100vh; /* This helps with centering the rotated text */
+  text-align: center;
+}
+
+.side-panel.collapsed .panel-title {
+  display: none;
+}
+
+.side-panel.collapsed .vertical-title {
+  display: block;
+}
+
+@keyframes shimmer {
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+.panel-content {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  flex: 1;
+  overflow-y: auto;
+  transition: opacity 0.3s ease;
+  background: rgba(167, 209, 244, 0.05); /* sky-blue with high transparency */
+}
+
+.side-panel.collapsed .panel-content {
+  display: none;
+  opacity: 0;
+}
+
+.panel-item {
+  position: relative;
+  transition: all 0.3s ease;
+  padding: 0.5rem;
+}
+
+/* Ensures that components inside the panel are positioned relative to the panel */
+.panel-item > div {
+  position: relative !important;
+  top: auto !important;
+  right: auto !important;
+  left: auto !important;
+  bottom: auto !important;
+  margin-bottom: 0.5rem;
+}
+
+/* Custom scrollbar for the panel content */
+.panel-content::-webkit-scrollbar {
+  width: 6px;
+}
+
+.panel-content::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 3px;
+}
+
+.panel-content::-webkit-scrollbar-thumb {
+  background: rgba(108, 166, 229, 0.3); /* deep-ocean-blue with transparency */
+  border-radius: 3px;
+}
+
+.panel-content::-webkit-scrollbar-thumb:hover {
+  background: rgba(108, 166, 229, 0.5); /* deeper color on hover */
+} 

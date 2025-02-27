@@ -1,0 +1,52 @@
+.video-container {
+  width: 100%;
+  margin: 0 50%;
+  padding: 20px;
+  background: var(--frosted-glass-gray);
+  backdrop-filter: blur(15px) opacity(0.8);
+  border-radius: 20px;
+  box-shadow: 
+    0 8px 32px rgba(0, 0, 0, 0.1),
+    inset 0 0 0 1px var(--glowing-white);
+}
+
+.video-js {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16/9;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Video.js custom styling */
+.video-js .vjs-big-play-button {
+  background-color: var(--crystal-blue) !important;
+  border-color: var(--glowing-white) !important;
+  border-radius: 50% !important;
+  width: 80px !important;
+  height: 80px !important;
+  line-height: 80px !important;
+  transition: all 0.3s ease !important;
+}
+
+.video-js .vjs-big-play-button:hover {
+  background-color: var(--deep-ocean-blue) !important;
+  transform: scale(1.1);
+}
+
+.video-js .vjs-control-bar {
+  background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
+  backdrop-filter: blur(5px);
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .video-container {
+    padding: 10px;
+  }
+}
+
+.video-container {
+  animation: fadeIn 0.6s ease-out forwards;
+}

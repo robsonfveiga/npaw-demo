@@ -1,0 +1,40 @@
+{
+  "$schema": "https://typedoc.org/schema.json",
+  "entryPoints": ["./src"],
+  "entryPointStrategy": "expand",
+  "out": "docs",
+  "name": "NPAW Video Player Documentation",
+  "includeVersion": true,
+  "excludePrivate": true,
+  "excludeProtected": true,
+  "excludeExternals": true,
+  "theme": "material",
+  "plugin": [
+    "typedoc-material-theme",
+    "typedoc-plugin-merge-modules"
+  ],
+  "categorizeByGroup": true,
+  "categoryOrder": [
+    "Components",
+    "Services",
+    "Models",
+    "Utilities",
+    "*"
+  ],
+  "navigationLinks": {
+    "GitHub": "https://github.com/yourusername/npaw-demo",
+    "Documentation": "doc.md"
+  },
+  "searchInComments": true,
+  "readme": "README.md",
+  "tsconfig": "tsconfig.app.json",
+  "sort": [
+    "source-order"
+  ],
+  "validation": {
+    "invalidLink": true,
+    "notDocumented": true
+  },
+  "cleanOutputDir": true,
+  "githubPages": true
+} 

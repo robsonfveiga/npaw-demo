@@ -1,0 +1,226 @@
+.token-container {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(12px);
+  border-radius: 12px;
+  padding: 1rem;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: all 0.3s ease;
+  min-width: 220px;
+  transform: translateZ(0);
+  z-index: 1000;
+}
+
+/* Panel variant styling overrides */
+.token-container.panel-variant {
+  position: relative;
+  top: auto;
+  right: auto;
+  width: 100%;
+  min-width: unset;
+  border-radius: 8px;
+  padding: 0.8rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  margin: 0;
+}
+
+.token-container:hover {
+  box-shadow: 0 12px 48px rgba(0, 0, 0, 0.15);
+}
+
+.token-container.panel-variant:hover {
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+}
+
+.token-display {
+  font-family: "Consolas", "Lucida Console", monospace;
+  font-size: 0.7rem;
+  color: var(--midnight-blue);
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-between;
+  letter-spacing: 0.5px;
+  position: relative;
+}
+
+.panel-variant .token-display {
+  margin-bottom: 1rem;
+}
+
+.token-display::after {
+  content: '';
+  position: absolute;
+  bottom: -0.5rem;
+  left: 10%;
+  width: 80%;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.5),
+    transparent
+  );
+}
+
+.token-label {
+  padding-bottom: 0.5rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 0.65rem;
+  color: rgba(0, 0, 0, 0.6);
+}
+
+.token-value {
+  font-family: "Consolas", "Lucida Console", monospace;
+  color: var(--midnight-blue);
+  font-weight: 700;
+  font-size: 0.9rem;
+  text-shadow: 0 1px 2px rgba(255, 255, 255, 0.3);
+  word-break: break-all;
+  padding: 0.3rem 0;
+  text-align: center;
+  max-width: 100%;
+}
+
+.token-controls {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 0;
+  flex-wrap: wrap;
+}
+
+.panel-variant .token-controls {
+  margin-bottom: 0;
+}
+
+.generate-button, .open-button {
+  flex: 3;
+  font-size: 0.7rem;
+  padding: 0.8rem 1.2rem;
+  border: none;
+  border-radius: 8px;
+  background: linear-gradient(
+    135deg,
+    var(--crystal-blue),
+    var(--deep-ocean-blue)
+  );
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.panel-variant .generate-button,
+.panel-variant .open-button {
+  padding: 0.6rem 1rem;
+}
+
+.generate-button::before, .open-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.2),
+    transparent
+  );
+  transition: 0.5s;
+}
+
+.generate-button:hover::before, .copy-button:hover::before {
+  left: 100%;
+}
+
+.generate-button:hover, .copy-button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+  background: linear-gradient(
+    135deg,
+    var(--deep-ocean-blue),
+    var(--crystal-blue)
+  );
+}
+
+.generate-button:active, .copy-button:active {
+  transform: translateY(1px);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.copy-button {
+  flex: 1;
+  background: rgba(255, 255, 255, 0.25);
+  color: var(--midnight-blue);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.copy-button:hover {
+  background: rgba(255, 255, 255, 0.35);
+}
+
+.copy-tooltip {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--midnight-blue);
+  color: white;
+  padding: 6px 12px;
+  border-radius: 8px;
+  font-size: 0.8rem;
+  opacity: 0;
+  animation: fadeIn 0.3s ease forwards, fadeOut 0.3s ease 1.2s forwards;
+  z-index: 10000;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translate(-50%, 10px);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
+  to {
+    opacity: 0;
+    transform: translate(-50%, -10px);
+  }
+}
+
+.token-value.generating {
+  animation: pulse 1.2s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.6;
+  }
+  100% {
+    opacity: 1;
+  }
+} 

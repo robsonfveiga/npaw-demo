@@ -1,0 +1,43 @@
+---
+description: The website style must follow this color schema
+globs: 
+alwaysApply: false
+---
+For a **blue-dominant minimalist cartoon-style** color scheme, inspired by *Big Buck Bunny* but with a **glowing, airy aesthetic**, we’ll focus on **soft blues, subtle gradients, and a clean, modern look**.  
+
+---
+
+### 🎨 **Color Palette – Blue Minimalist Glow**  
+
+1. **Sky Blue** (`#A7D1F4`) – Soft and bright, a main base color.  
+2. **Crystal Blue** (`#BFE1FF`) – A slightly lighter blue for contrast.  
+3. **Deep Ocean Blue** (`#6CA6E5`) – Provides a richer depth for shadows and edges.  
+4. **Glowing White** (`#FFFFFF`, **80% opacity**) – Used for highlights and soft glow.  
+5. **Frosted Glass Gray** (`#E3ECF3`, **50% opacity**) – Adds transparency effects.  
+6. **Midnight Blue** (`#2E4E78`) – For shadows and deeper elements.  
+7. **Soft Shadow Blue** (`#89B4E5`, **30% opacity**) – Used to create depth while keeping it light.
+
+---
+### ✨ **Design Approach – Minimalist Cartoon**  
+
+1. **Glassmorphism Effect**:  
+   - Use **semi-transparent elements** (`backdrop-filter: blur(15px) opacity(0.8);`).  
+   - White glowing **soft edges** around UI components.  
+
+2. **Minimalist UI**:  
+   - **Flat, rounded shapes** with **gentle gradients** (light blue to white).  
+   - **No heavy borders**; use soft shadows (`box-shadow: 0 10px 20px rgba(173, 216, 230, 0.3);`).  
+
+3. **Glowing Accents**:  
+   - Buttons and important elements should have **soft blue glow** (`box-shadow: 0 0 12px rgba(173, 216, 230, 0.8);`).  
+   - Hover effects with **brightness increase** rather than hard edges.  
+
+4. **Typography**:  
+   - **Simple sans-serif** like `Inter`, `Poppins`, or `Nunito`.  
+   - Light **font-weight with spaced-out text** (`letter-spacing: 0.05em`).  
+
+5. **Icons & Illustrations**:  
+   - **Thin-line icons with blue & white outlines**.  
+   - **Subtle animation** (soft bounce or fade-in).  
+
+---

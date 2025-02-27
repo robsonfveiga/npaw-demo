@@ -1,0 +1,13 @@
+:root {
+  --sky-blue: #A7D1F4;
+  --crystal-blue: #BFE1FF;
+  --deep-ocean-blue: #6CA6E5;
+  --glowing-white: rgb(224, 234, 243);
+  --frosted-glass-gray: rgba(227, 236, 243, 0.5);
+  --midnight-blue: #2E4E78;
+  --soft-shadow-blue: rgba(137, 180, 229, 0.3);
+} 
+
+:root {
+  --midnight-blue: #191970; /* Define Midnight Blue */
+}
