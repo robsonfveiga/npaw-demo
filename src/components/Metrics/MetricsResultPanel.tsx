@@ -12,6 +12,7 @@ interface Props {
     descriptions?: { [key: string]: string };
     /** Metrics data payload to display */
     payload?: MetricsResponse | undefined;
+    config: object;
 }
 
 /**
