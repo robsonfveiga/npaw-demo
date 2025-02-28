@@ -4,7 +4,7 @@ import { MetricsResponse } from '@models/ApiResponse';
 import { TokenService } from './TokenService';
 import { NpawUrlBuilder } from './UrlBuilder';
 import { ApiEndpoints } from '@models/index';
-
+import { UserInfo } from '@models/UserInfo';
 /**
  * Service for interacting with the NPAW API.
  * Handles authentication, URL generation, and data fetching from NPAW endpoints.
@@ -36,6 +36,15 @@ export class NpawApiService {
   }
 
   /**
+   * Get User IP Address
+   * @returns Promise resolving to the user's IP address
+   */ 
+  async getUserInfo(): Promise<UserInfo> {
+    const response = await fetch(`https://ipinfo.io?token=${NpawConfig.IP_INFO_TOKEN}`);
+    return await response.json() as UserInfo;
+  }
+  
+  /**
    * Creates an authenticated URL for accessing NPAW API endpoints
    * @param params - Optional parameters for the URL
    * @returns Promise resolving to the authenticated URL
@@ -48,6 +57,14 @@ export class NpawApiService {
       metrics: ['views'],
       granularity: "",
       viewType: ["all"],
+      filters: [
+        {
+          name: "MyIP",
+          rules: {
+            ip: [(await this.getUserInfo()).ip]
+          }
+        }
+      ],
       ttlMs: 31536000000, // 1 year in milliseconds
     }
     const mergedParams = { ...defaultParams, ...params };

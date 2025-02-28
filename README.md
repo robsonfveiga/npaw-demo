@@ -1,122 +1,95 @@
-# NPAW Video Player Demo
+# NPAW Video Analytics Integration
 
-## Overview
-This project is a demonstration of video player integration with NPAW (Nice People At Work) analytics. It showcases a video player implementation using VideoJS with NPAW's plugin for advanced video analytics and monitoring.
+A demo React application that integrates NPAW (Nice People At Work) analytics for video player monitoring and analytics. This project provides a seamless integration between video.js player and NPAW's analytics platform.
 
-## Features
-- Video playback with adaptive bitrate streaming (HLS)
-- Real-time video quality metrics monitoring
-- Bitrate selection controls
-- Token-based authentication system
-- Interactive metrics visualization
-- NPAW plugin integration for analytics
+## 🎯 Core Features
 
-## Prerequisites
-- Node.js (v18 or higher)
-- npm (v9 or higher)
+### NPAW Plugin Service
+The heart of this application is the `NpawPluginService`, a sophisticated singleton service that manages the integration between Video.js player and NPAW analytics platform. Key features include:
 
-## Installation
-1. Clone the repository
+- **Real-time Bitrate Monitoring**: Tracks and broadcasts video bitrate changes in real-time
+- **Flexible Adapter System**: Supports multiple adapter types (VideoJS with Mbps or bps units)
+- **Reactive Architecture**: Uses RxJS BehaviorSubjects for reactive state management
+- **Event Monitoring**: Captures and processes video analytics events like join time and ping
+- **Player Registration**: Seamless registration and configuration of video player instances
+- **Type Safety**: Full TypeScript implementation with proper interfaces and type definitions
+
+The service implements the Singleton pattern to ensure consistent state management across the application, making it ideal for monitoring and analyzing video playback performance.
+
+## 📋 Prerequisites
+
+- Node.js (Latest LTS version recommended)
+- npm or yarn package manager
+- NPAW account and credentials
+
+## 🛠️ Installation
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/robsonfveiga/npaw-demo.git
+   cd npaw
+   ```
+
 2. Install dependencies:
-```bash
-npm install
-```
-3. Copy `.env.example` to `.env` and configure your environment variables:
-```bash
-cp .env.example .env
-```
+   ```bash
+   npm install
+   ```
 
-## Environment Variables
-- `VITE_NPAW_ACCOUNT_CODE`: Your NPAW account code
-- `VITE_NPAW_USER_ID`: NPAW user identifier
+3. Configure environment variables:
+   ```bash
+   cp .env.example .env
+   ```
+   Update the `.env` file with your NPAW credentials and configuration.
 
-## Available Scripts
-- `npm run dev`: Start development server
-- `npm run build`: Build for production
-- `npm run lint`: Run ESLint
-- `npm run preview`: Preview production build
-- `npm run docs`: Generate TypeDoc documentation
+## 🚦 Getting Started
 
-## Project Structure
+1. Start the development server:
+   ```bash
+   npm run dev
+   ```
+
+2. Build for production:
+   ```bash
+   npm run build
+   ```
+
+3. Preview production build:
+   ```bash
+   npm run preview
+   ```
+
+4. Generate documentation:
+   ```bash
+   npm run docs
+   ```
+
+## 🏗️ Project Structure
+
 ```
 src/
-├── assets/        # Static assets
-├── components/    # React components
-│   ├── App/
-│   ├── BitRateSelector/
-│   ├── Metrics/
-│   ├── PanelBar/
-│   ├── TokenGenerator/
-│   └── Video/
-├── Config/        # Configuration files
-├── models/        # TypeScript interfaces and types
-├── services/      # Business logic and API services
-└── styles/        # Global styles and themes
+├── assets/      # Static assets and resources
+├── components/  # React components
+├── Config/      # Configuration files
+├── models/      # TypeScript interfaces and types
+├── services/    # API and business logic
+└── styles/      # CSS and styling files
 ```
 
-## Key Components
+## 📚 Documentation
 
-### Video Player (`src/components/Video/Video.tsx`)
-The main video player component integrating VideoJS with NPAW analytics. Handles video playback and quality management.
+API documentation is automatically generated using TypeDoc. After running `npm run docs`, you can find the documentation in the `docs` directory.
 
-### Metrics Control (`src/components/Metrics/MetricsControl.tsx`)
-Displays and manages video quality metrics and analytics data from NPAW.
+## 🔧 Configuration
 
-### BitRate Selector (`src/components/BitRateSelector/BitRateSelector.tsx`)
-Allows manual control of video quality and bitrate selection.
+The application can be configured through environment variables:
+- `VITE_NPAW_ACCOUNT`: Your NPAW account ID
+- `VITE_NPAW_USERNAME`: NPAW username
+- Additional configuration can be found in `.env.example`
 
-### Token Generator (`src/components/TokenGenerator/TokenGenerator.tsx`)
-Manages authentication tokens for secure video playback.
+## 🔗 Links
 
-## Configuration
-The application can be configured through various files:
-- `.env`: Environment variables
-- `vite.config.ts`: Vite bundler configuration
-- `tsconfig.json`: TypeScript configuration
-- `eslint.config.js`: ESLint rules and settings
+- [NPAW](https://npaw.com/) for the analytics platform
+- [Video.js](https://videojs.com/) for the video player framework
 
-## Development Guidelines
+---
 
-### Code Style
-- Use TypeScript for type safety
-- Follow ESLint rules for consistent code style
-- Write JSDoc comments for components and functions
-- Use functional components with hooks
-
-### Best Practices
-- Implement error boundaries for component error handling
-- Use proper TypeScript types and interfaces
-- Follow React best practices for component composition
-- Implement proper cleanup in useEffect hooks
-
-### Testing
-- Write unit tests for components and services
-- Test error handling and edge cases
-- Verify NPAW integration functionality
-
-## Production Deployment
-1. Build the application:
-```bash
-npm run build
-```
-2. Preview the build:
-```bash
-npm run preview
-```
-3. Deploy the contents of the `dist` directory to your hosting service
-
-## Troubleshooting
-Common issues and solutions:
-- **Video playback issues**: Verify HLS stream availability and network connectivity
-- **NPAW integration errors**: Check account credentials in environment variables
-- **Build failures**: Ensure all dependencies are installed and TypeScript types are correct
-
-## Contributing
-1. Fork the repository
-2. Create a feature branch
-3. Commit your changes
-4. Push to the branch
-5. Create a Pull Request
-
-## License
-This project is licensed under the MIT License - see the LICENSE file for details.

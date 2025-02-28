@@ -57,4 +57,9 @@ export interface ApiUrlParams {
    * Direction to order results
    */
   orderDirection?: 'asc' | 'desc';
+
+  filters?: Array<{
+    name: string;
+    rules: Record<string, string[]>;
+  }>;
 } 

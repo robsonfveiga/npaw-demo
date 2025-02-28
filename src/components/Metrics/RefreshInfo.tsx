@@ -1,13 +1,14 @@
 import { FC, useState, useEffect } from 'react';
 import { Metadata } from '@/models/ApiResponse';
 import './RefreshInfo.css';
-
+import { UserInfo } from '@/models/UserInfo';
 interface RefreshInfoProps {
   metadata: Metadata | undefined;
   onRefresh: () => void;
+  userInfo: UserInfo;
 }
 
-export const RefreshInfo: FC<RefreshInfoProps> = ({ metadata, onRefresh }) => {
+export const RefreshInfo: FC<RefreshInfoProps> = ({ metadata, onRefresh, userInfo }) => {
   if (!metadata) return null;
 
   const [progress, setProgress] = useState(0);
@@ -75,6 +76,11 @@ export const RefreshInfo: FC<RefreshInfoProps> = ({ metadata, onRefresh }) => {
         </div>
         <span className="refresh-progress-text">
           {Math.round(progress)}% until next refresh ({Math.ceil((nextRefresh - Date.now()) / 1000)}s)
+          <div className="user-info">
+            {userInfo.ip}
+            <br/>
+            {userInfo.city.toLowerCase()}/{userInfo.country.toUpperCase()}
+          </div>
         </span>
       </div>
     </div>

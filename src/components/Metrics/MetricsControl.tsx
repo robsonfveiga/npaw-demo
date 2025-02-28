@@ -12,6 +12,7 @@ import { ErrorsMetrics, errorsMetricsConfig } from '@/models/metrics/errors';
 import { EngagementMetrics, engagementMetricsConfig } from '@/models/metrics/engagement';
 import { RenditionsMetrics, renditionsMetricsConfig } from '@/models/metrics/renditions';
 import { P2PMetrics, p2pMetricsConfig } from '@/models/metrics/p2p';    
+import { UserInfo } from '@/models/UserInfo';
 
 const categories = [
   { 
@@ -58,9 +59,14 @@ export const MetricsControl = () => {
   const [selectedCategory, setSelectedCategory] = useState(categories[0].name);
   const [loadedCaterory, setLoadedCategory] = useState<{ category: string; metrics: MetricsResponse, config: object } | undefined>(undefined);
   const [metadata, setMetadata] = useState<Metadata | undefined>(undefined);
+  const [userInfo, setUserInfo] = useState<UserInfo | undefined>(undefined);
 
   useEffect(() => {
+    npawService.getUserInfo().then((userInfo) => {
+      setUserInfo(userInfo);
+    });
     loadCategoryData();
+    
   }, []);
 
   const loadCategoryData = async () => {
@@ -94,6 +100,8 @@ export const MetricsControl = () => {
     handleRefresh();
   }, [selectedCategory]);
 
+  
+
   return (
     <div className="metrics-control">
       <div className="metrics-selector-container">
@@ -114,7 +122,7 @@ export const MetricsControl = () => {
       </div>
       {metadata && (
       <div className="next-refresh-container">
-          <RefreshInfo metadata={metadata} onRefresh={handleRefresh} />
+          <RefreshInfo metadata={metadata} onRefresh={handleRefresh} userInfo={userInfo} />
       </div>
        )}
       <div>

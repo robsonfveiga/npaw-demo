@@ -1,5 +1,7 @@
 import { ApiUrlParams } from '@models/ApiUrlParams';
 import { ApiEndpoints } from '@models/index';
+
+
 /**
  * Service responsible for constructing NPAW API URLs.
  * Handles the creation of properly formatted and encoded URLs with query parameters.
@@ -59,7 +61,11 @@ export class NpawUrlBuilder {
     if (params.orderDirection) {
       searchParams.set('orderDirection', params.orderDirection);
     }
-    
+
+    if (params.filters && params.filters.length > 0) {
+      searchParams.set('filter', JSON.stringify(params.filters));
+    }
+
     // Convert searchParams to string and append to endpoint
     return `${apiEndpoints}?${searchParams.toString()}`;
   }
