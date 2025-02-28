@@ -3,8 +3,8 @@
 A demo React application that integrates **NPAW (Nice People At Work)** analytics for **video player monitoring and analytics**. This project provides a seamless integration between **video.js player** and **NPAW's analytics platform**.
 
 ### 📌 Live Demo & Documentation
-- [**Application Demo**](https://npaw.vercel.app/)
-- [**Application Documentation (TypeDocs)**](https://npaw.vercel.app/docs/index.html)
+- [**Live Demo**](https://npaw.vercel.app/)
+- [**Documentation (TypeDocs)**](https://npaw.vercel.app/docs/index.html)
 
 ---
 
