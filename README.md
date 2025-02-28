@@ -4,7 +4,7 @@ A demo React application that integrates **NPAW (Nice People At Work)** analytic
 
 ### 📌 Live Demo & Documentation
 - [**Application Demo**](https://npaw.vercel.app/)
-- [**Application Documentatio (TypeDocs)**](https://npaw.vercel.app/docs/index.html)
+- [**Application Documentation (TypeDocs)**](https://npaw.vercel.app/docs/index.html)
 
 ---
 

@@ -8,7 +8,6 @@
   "excludePrivate": true,
   "excludeProtected": true,
   "excludeExternals": true,
-  "theme": "material",
   "plugin": [
     "typedoc-material-theme",
     "typedoc-plugin-merge-modules"
@@ -22,8 +21,8 @@
     "*"
   ],
   "navigationLinks": {
-    "GitHub": "https://github.com/yourusername/npaw-demo",
-    "Documentation": "doc.md"
+    "GitHub": "https://github.com/robsonfveiga/npaw-demo",
+    "Documentation": "docs/index.html"
   },
   "searchInComments": true,
   "readme": "README.md",
